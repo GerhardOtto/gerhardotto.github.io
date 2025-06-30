@@ -10,6 +10,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+  site: "https://GerhardOtto.github.io",
+  base: "curious-monkey",
 
   integrations: [react()]
 });
