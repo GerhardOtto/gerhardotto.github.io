@@ -11,7 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: "https://GerhardOtto.github.io",
-  base: "",
+  base: "/",
 
   integrations: [react()]
 });
