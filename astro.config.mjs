@@ -11,7 +11,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: "https://GerhardOtto.github.io",
-  base: "curious-monkey",
 
   integrations: [react()]
 });
