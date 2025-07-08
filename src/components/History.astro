@@ -1,0 +1,32 @@
+---
+import { HistoryTab } from "./react/HistoryTab";
+
+const history = import.meta.glob("../markdown/history/*.md", { eager: true });
+
+type Card = {
+  title: React.ReactNode;
+  description: React.ReactNode;
+  content: React.ReactNode;
+  startDate: React.ReactNode;
+  endDate: React.ReactNode;
+  type: "education" | "experience";
+};
+
+const cards: Card[] = Object.values(history).map((item: any) => {
+  const { title, description, startDate, endDate, type } = item.frontmatter;
+  const { content } = item.compiledContent
+  return {
+    title,
+    description,
+    startDate,
+    endDate,
+    content, 
+    type,
+  };
+});
+
+const exp = cards.filter((c) => c.type === "experience");
+const edu = cards.filter((c) => c.type === "education");
+---
+
+<HistoryTab client:load {exp} {edu} />
