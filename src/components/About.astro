@@ -1,12 +1,12 @@
 ---
-
+import * as about from "../markdown/about.md"
 ---
 
 <div class="flex flex-col justify-center items-center">
     <main>
         <section id="hero">
-            <h1 class="text-2xl">Hallo there, I&apos;m Gerhard.</h1>
-            <p>A Full-Stack Software Engineer, <br/> based in Johannesburg South Africa.</p>
+            <h1 class="text-2xl">Hallo there, I&apos;m {about.frontmatter.name}.</h1>
+            <p>A {about.frontmatter.jobTitle}, <br/> based in {about.frontmatter.city} {about.frontmatter.country}.</p>
         </section>
     </main>
 </div>
