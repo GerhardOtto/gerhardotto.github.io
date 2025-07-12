@@ -1,26 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { HistoryCard } from "./HistoryCard";
 import type React from "react";
-
-type ExperienceContent = {
-  title: React.ReactNode;
-  description: React.ReactNode;
-  content: React.ReactNode;
-  startDate: React.ReactNode;
-  endDate: React.ReactNode;
-};
-
-type EducationContent = {
-  title: React.ReactNode;
-  description: React.ReactNode;
-  content: React.ReactNode;
-  startDate: React.ReactNode;
-  endDate: React.ReactNode;
-};
+import { HistoryCard } from "./HistoryCard";
+import type { HistoryType } from "@/types/HistoryType";
 
 type Props = {
-  exp: ExperienceContent[];
-  edu: EducationContent[];
+  exp: HistoryType[];
+  edu: HistoryType[];
 };
 
 export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
@@ -31,7 +16,7 @@ export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
           <TabsTrigger value="experience">Experience</TabsTrigger>
           <TabsTrigger value="education">Education</TabsTrigger>
         </TabsList>
-        <TabsContent value="experience">
+        <TabsContent value="experience" className="flex flex-col gap-5">
           {exp.map((item, index) => (
             <HistoryCard
               key={index}
@@ -43,7 +28,7 @@ export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
             />
           ))}
         </TabsContent>
-        <TabsContent value="education">
+        <TabsContent value="education" className="flex flex-col gap-5">
           {edu.map((item, index) => (
             <HistoryCard
               key={index}

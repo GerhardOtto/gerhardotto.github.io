@@ -1,5 +1,3 @@
-import React from "react";
-import { Button } from "../ui/button";
 import {
   Card,
   CardContent,
@@ -8,13 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { format } from "date-fns";
+import React from "react";
 
 type Props = {
-  title: React.ReactNode;
-  description: React.ReactNode;
-  content: React.ReactNode;
-  startDate: React.ReactNode;
-  endDate: React.ReactNode;
+  title: string;
+  description: string;
+  content: string;
+  startDate: string;
+  endDate: string;
 };
 
 export const HistoryCard: React.FC<Props> = ({
@@ -34,8 +34,10 @@ export const HistoryCard: React.FC<Props> = ({
         <p>{content}</p>
       </CardContent>
       <CardFooter>
-        <div>{startDate}</div>
-        <div>{endDate}</div>
+        <div className="text-sm text-gray-400">
+          From: {format(new Date(startDate), "MMMM yyyy")} to{" "}
+          {format(new Date(endDate), "MMMM yyyy")}
+        </div>
       </CardFooter>
     </Card>
   );

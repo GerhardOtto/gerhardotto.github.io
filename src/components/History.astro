@@ -1,26 +1,36 @@
 ---
 import { HistoryTab } from "./react/HistoryTab";
+import type { HistoryType } from "@/types/HistoryType";
 
 const history = import.meta.glob("../markdown/history/*.md", { eager: true });
 
-type Card = {
-  title: React.ReactNode;
-  description: React.ReactNode;
-  content: React.ReactNode;
-  startDate: React.ReactNode;
-  endDate: React.ReactNode;
+type Card = HistoryType & {
   type: "education" | "experience";
 };
 
-const cards: Card[] = Object.values(history).map((item: any) => {
-  const { title, description, startDate, endDate, type } = item.frontmatter;
-  const { content } = item.compiledContent
+type HistoryItem = {
+  frontmatter: {
+    title: string;
+    description: string;
+    startDate: string;
+    endDate: string;
+    type: "education" | "experience";
+  };
+  compiledContent: {
+    content: string;
+  };
+};
+
+const cards: Card[] = Object.values(history).map((item: unknown) => {
+  const { frontmatter, compiledContent } = item as HistoryItem;
+  const { title, description, startDate, endDate, type } = frontmatter;
+  const { content } = compiledContent;
   return {
     title,
     description,
     startDate,
     endDate,
-    content, 
+    content,
     type,
   };
 });
