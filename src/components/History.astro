@@ -1,39 +1,37 @@
 ---
-import { HistoryTab } from "./react/HistoryTab";
 import type { HistoryType } from "@/types/HistoryType";
+import { HistoryTab } from "./react/HistoryTab";
 
-const history = import.meta.glob("../markdown/history/*.md", { eager: true });
-
-type Card = HistoryType & {
-  type: "education" | "experience";
-};
+const history = import.meta.glob("../assets/markdown/history/*.md", { eager: true });
 
 type HistoryItem = {
   frontmatter: {
     title: string;
-    description: string;
+    subTitle: string;
+    location: string;
     startDate: string;
     endDate: string;
     type: "education" | "experience";
   };
-  compiledContent: {
-    content: string;
-  };
+  compiledContent: () => Promise<string>;
 };
 
-const cards: Card[] = Object.values(history).map((item: unknown) => {
-  const { frontmatter, compiledContent } = item as HistoryItem;
-  const { title, description, startDate, endDate, type } = frontmatter;
-  const { content } = compiledContent;
-  return {
-    title,
-    description,
-    startDate,
-    endDate,
-    content,
-    type,
-  };
-});
+const cards: HistoryType[] = await Promise.all(
+  Object.values(history).map(async (item: unknown) => {
+    const { frontmatter, compiledContent } = item as HistoryItem;
+    const { title, subTitle, location, startDate, endDate, type } = frontmatter;
+    const content = await compiledContent();
+    return {
+      title,
+      subTitle,
+      location,
+      startDate,
+      endDate,
+      content,
+      type,
+    };
+  })
+);
 
 const exp = cards.filter((c) => c.type === "experience");
 const edu = cards.filter((c) => c.type === "education");

@@ -1,8 +1,9 @@
 export type HistoryType = {
   title: string;
-  description: string;
+  subTitle: string;
+  location: string;
   content: string;
   startDate: string;
   endDate: string;
-  type: string;
+  type: "education" | "experience";
 };
