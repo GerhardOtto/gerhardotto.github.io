@@ -9,6 +9,12 @@ type Props = {
 };
 
 export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
+  const sortedExp = exp.sort(
+    (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+  );
+  const sortedEdu = edu.sort(
+    (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+  );
   return (
     <div className="flex w-full flex-col gap-6">
       <Tabs defaultValue="experience">
@@ -17,11 +23,12 @@ export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
           <TabsTrigger value="education">Education</TabsTrigger>
         </TabsList>
         <TabsContent value="experience" className="flex flex-col gap-5">
-          {exp.map((item, index) => (
+          {sortedExp.map((item, index) => (
             <HistoryCard
               key={index}
               title={item.title}
-              description={item.description}
+              subTitle={item.subTitle}
+              location={item.location}
               content={item.content}
               startDate={item.startDate}
               endDate={item.endDate}
@@ -29,11 +36,12 @@ export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
           ))}
         </TabsContent>
         <TabsContent value="education" className="flex flex-col gap-5">
-          {edu.map((item, index) => (
+          {sortedEdu.map((item, index) => (
             <HistoryCard
               key={index}
               title={item.title}
-              description={item.description}
+              subTitle={item.subTitle}
+              location={item.location}
               content={item.content}
               startDate={item.startDate}
               endDate={item.endDate}

@@ -11,15 +11,17 @@ import React from "react";
 
 type Props = {
   title: string;
-  description: string;
+  subTitle?: string;
+  location: string;
   content: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
 };
 
 export const HistoryCard: React.FC<Props> = ({
   title,
-  description,
+  subTitle,
+  location,
   content,
   startDate,
   endDate,
@@ -28,16 +30,27 @@ export const HistoryCard: React.FC<Props> = ({
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="flex flex-col">
+          {subTitle && <div>{subTitle}</div>}
+          {location && <div>{"@ " + location}</div>}
+        </CardDescription>
       </CardHeader>
-      <CardContent>
-        <p>{content}</p>
-      </CardContent>
+      {content && (
+        <CardContent>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </CardContent>
+      )}
       <CardFooter>
-        <div className="text-sm text-gray-400">
-          From: {format(new Date(startDate), "MMMM yyyy")} to{" "}
-          {format(new Date(endDate), "MMMM yyyy")}
-        </div>
+        {endDate ? (
+          <div className="text-sm text-gray-400">
+            From: {format(new Date(startDate), "MMMM yyyy")} to{" "}
+            {format(new Date(endDate), "MMMM yyyy")}
+          </div>
+        ) : (
+          <div className="text-sm text-gray-400">
+            From: {format(new Date(startDate), "MMMM yyyy")}
+          </div>
+        )}
       </CardFooter>
     </Card>
   );
