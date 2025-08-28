@@ -9,36 +9,41 @@ const thumbnailPath = about.frontmatter.thumbnail;
 
 <div class="flex flex-col justify-center items-center">
   <main>
-    <section id="hero" class="flex gap-7 justify-center items-center">
-      <div>
-        <h1 class="text-2xl">
-          Hallo there, I&apos;m {about.frontmatter.name}.
-        </h1>
-        <p>
-          A {about.frontmatter.jobTitle}, <br /> based in
-          {about.frontmatter.city}
-          {about.frontmatter.country}.
-        </p>
-        <div class="flex gap-5 justify-center py-5">
-          <a href={about.frontmatter.GitHub} target="_blank">
-            <GitHub />
-          </a>
-          <a href={about.frontmatter.LinkedIn} target="_blank">
-            <LinkedIn />
-          </a>
+    <section id="hero">
+      <div class="flex gap-7 justify-center items-center">
+        <div>
+          <h1 class="text-2xl">
+            Hallo there, I&apos;m {about.frontmatter.name}.
+          </h1>
+          <p>
+            A {about.frontmatter.jobTitle}, <br /> based in
+            {about.frontmatter.city}
+            {about.frontmatter.country}.
+          </p>
+          <div class="flex gap-5 justify-center py-5">
+            <a href={about.frontmatter.GitHub} target="_blank">
+              <GitHub />
+            </a>
+            <a href={about.frontmatter.LinkedIn} target="_blank">
+              <LinkedIn />
+            </a>
+          </div>
         </div>
+        {
+          thumbnailPath && (
+            <Image
+              src={thumbnailPath}
+              alt="Profile thumbnail"
+              width="150"
+              height="150"
+              class={"rounded-full border-2 border-gray-300 shadow-md"}
+            />
+          )
+        }
       </div>
-      {
-        thumbnailPath && (
-          <Image
-            src={thumbnailPath}
-            alt="Profile thumbnail"
-            width="150"
-            height="150"
-            class={"rounded-full border-2 border-gray-300 shadow-md"}
-          />
-        )
-      }
+      <p class="text-pretty py-5">
+        {about.rawContent}
+      </p>
     </section>
   </main>
 </div>
