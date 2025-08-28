@@ -1,6 +1,8 @@
 ---
 import * as about from "../assets/markdown/about.md";
 import { Image } from "astro:assets";
+import GitHub from "../assets/icons/github.svg";
+import LinkedIn from "../assets/icons/linkedin.svg";
 
 const thumbnailPath = about.frontmatter.thumbnail;
 ---
@@ -17,6 +19,14 @@ const thumbnailPath = about.frontmatter.thumbnail;
           {about.frontmatter.city}
           {about.frontmatter.country}.
         </p>
+        <div class="flex gap-5 justify-center py-5">
+          <a href={about.frontmatter.GitHub} target="_blank">
+            <GitHub />
+          </a>
+          <a href={about.frontmatter.LinkedIn} target="_blank">
+            <LinkedIn />
+          </a>
+        </div>
       </div>
       {
         thumbnailPath && (
