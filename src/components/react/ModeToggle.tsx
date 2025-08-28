@@ -5,8 +5,18 @@ import { Button } from "@/components/ui/button";
 
 export const ModeToggle = () => {
   const [theme, setThemeState] = React.useState<"light" | "dark" | "system">(
-    "light"
+    () => {
+      if (typeof window !== "undefined") {
+        return (localStorage.getItem("theme") as "light" | "dark" | "system") || "system";
+      }
+      return "system";
+    }
   );
+
+  const setTheme = (newTheme: "light" | "dark" | "system") => {
+    setThemeState(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 
   React.useEffect(() => {
     const isDark =
@@ -16,7 +26,7 @@ export const ModeToggle = () => {
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
   }, [theme]);
   return (
-    <Button onClick={() => setThemeState(theme === "dark" ? "light" : "dark")}>
+    <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
       {theme === "light" ? <Sun /> : <Moon />}
     </Button>
   );

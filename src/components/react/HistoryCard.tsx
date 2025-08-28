@@ -37,7 +37,7 @@ export const HistoryCard: React.FC<Props> = ({
       </CardHeader>
       {content && (
         <CardContent>
-          <div className="prose prose-gray max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="prose prose-gray max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: content }} />
         </CardContent>
       )}
       <CardFooter>
