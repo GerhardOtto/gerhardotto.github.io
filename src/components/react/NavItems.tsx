@@ -7,9 +7,6 @@ export const NavItems = () => {
         <a href="/">Home</a>
       </Button>
       <Button asChild>
-        <a href="/projects/">Projects</a>
-      </Button>
-      <Button asChild>
         <a href="/blogs/">Blogs</a>
       </Button>
     </div>
