@@ -1,6 +1,6 @@
 ---
 title: Barista
-location: The local coffee shop
+location: Toro
 startDate: 2023-08
 endDate: 2024-01
 type: experience 

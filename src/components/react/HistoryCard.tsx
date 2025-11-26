@@ -41,7 +41,11 @@ export const HistoryCard: React.FC<Props> = ({
         </CardContent>
       )}
       <CardFooter>
-        {endDate ? (
+        {endDate && endDate === startDate ? (
+          <div className="text-sm text-gray-400">
+            Received: {format(new Date(startDate), "d MMMM yyyy")}
+          </div>
+        ) : endDate ? (
           <div className="text-sm text-gray-400">
             From: {format(new Date(startDate), "MMMM yyyy")} to{" "}
             {format(new Date(endDate), "MMMM yyyy")}

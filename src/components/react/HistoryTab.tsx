@@ -10,10 +10,10 @@ type Props = {
 
 export const HistoryTab: React.FC<Props> = ({ exp, edu }) => {
   const sortedExp = exp.sort(
-    (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+    (a, b) => new Date(b.startDate).getFullYear() - new Date(a.startDate).getFullYear()
   );
   const sortedEdu = edu.sort(
-    (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+    (a, b) => new Date(b.endDate).getFullYear() - new Date(a.endDate).getFullYear()
   );
   return (
     <div className="flex w-full flex-col gap-6">
