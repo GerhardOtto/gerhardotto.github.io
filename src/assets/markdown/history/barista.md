@@ -1,5 +1,6 @@
 ---
 title: Barista
+subTitle: Coffee Beans | Milk | La Marzocco 
 location: Toro
 startDate: 2023-08
 endDate: 2024-01

@@ -1,6 +1,6 @@
 ---
 title: Full-Stack Software Engineer
-subTitle: Focus on Next.js, Go, MongoDB and GCP
+subTitle: Next.js | Go | MongoDB | Docker | GCP
 location: 1Pulse Digital
 startDate: 2025-01
 endDate: 

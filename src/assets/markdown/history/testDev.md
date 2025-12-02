@@ -1,6 +1,6 @@
 ---
 title: Software Developer in Test
-subTitle: Part-Time PlayWright Tester using TypeScript
+subTitle: Playwright
 location: 1Pulse Digital
 startDate: 2024-09
 endDate: 2024-12
