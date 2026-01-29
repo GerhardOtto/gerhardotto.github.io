@@ -6,9 +6,9 @@ export const NavItems = () => {
       <Button asChild>
         <a href="/">Home</a>
       </Button>
-      {/* <Button asChild>
-        <a href="/blogs/">Blogs</a>
-      </Button> */}
+      <Button asChild>
+        <a href="/about">About</a>
+      </Button>
     </div>
   );
 };
