@@ -44,7 +44,7 @@ export const HistoryCard: React.FC<Props> = ({
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <Card>
+      <Card className={`flex flex-col min-h-40 ${isOpen ? "gap-6" : "gap-0"}`}>
         <CardHeader>
           <div className="flex items-center justify-between gap-2">
             <CardTitle>
@@ -76,17 +76,19 @@ export const HistoryCard: React.FC<Props> = ({
             )}
           </CardDescription>
         </CardHeader>
-        {content && (
-          <CollapsibleContent>
-            <CardContent>
-              <div
-                className="prose  max-w-none text-foreground"
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
-            </CardContent>
-          </CollapsibleContent>
-        )}
-        <CardFooter className="text-sm text-foreground">
+        <div>
+          {content && (
+            <CollapsibleContent>
+              <CardContent>
+                <div
+                  className="prose  max-w-none text-foreground"
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
+              </CardContent>
+            </CollapsibleContent>
+          )}
+        </div>
+        <CardFooter className="text-sm text-foreground mt-auto">
           {endDate && endDate === startDate ? (
             <div className="flex gap-2 items-center">
               <CalendarDays className="w-4 h-4" />
