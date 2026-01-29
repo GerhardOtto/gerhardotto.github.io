@@ -16,7 +16,6 @@ import {
   Building,
   CalendarDays,
   ChevronDown,
-  ChevronUp,
   Cog,
 } from "lucide-react";
 import React, { useState } from "react";
@@ -53,12 +52,11 @@ export const HistoryCard: React.FC<Props> = ({
             </CardTitle>
             {hasCollapsibleContent && (
               <CollapsibleTrigger asChild>
-                <Button className="p-1 ">
-                  {isOpen ? (
-                    <ChevronUp className="h-4 w-4" />
-                  ) : (
-                    <ChevronDown className="h-4 w-4" />
-                  )}
+                <Button className="gap-1 text-xs" variant={"outline"} size="sm">
+                  {isOpen ? "Hide" : "Details"}
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                  />
                 </Button>
               </CollapsibleTrigger>
             )}

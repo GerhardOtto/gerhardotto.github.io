@@ -26,7 +26,7 @@ export const ModeToggle = () => {
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
   }, [theme]);
   return (
-    <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+    <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} variant={"outline"}>
       {theme === "light" ? <Sun /> : <Moon />}
     </Button>
   );
