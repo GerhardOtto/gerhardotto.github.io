@@ -7,8 +7,9 @@ endDate:
 type: experience 
 ---
 
-Working as a full-stack software engineer at a startup taught me to adapt to what is required to ensure the job gets done, whether that means picking up a new framework, stepping in to debug infrastructure issues, or collaborating closely with non-technical teammates. 
-This experience strengthened my ability to learn on the fly, prioritize effectively in fast-changing environments. It strengthen my problem-solving mindset for when the path forward isn’t clearly defined.
+I communicate with designers, developers, and external teams to align on feature requirements and implementations, improving communication between technical and non-technical teams to reduce development friction.
+
+So far I have learned to adapt to ensure the job gets done, whether that means picking up a new framework, stepping in to debug infrastructure issues, or venturing into completely uncharted territory. This has strengthened my ability to learn on the fly, prioritize effectively in fast-changing environments, and develop a problem-solving mindset to ensure things get done.
 
 Tech Stack:
 - Go

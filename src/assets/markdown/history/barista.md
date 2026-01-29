@@ -7,6 +7,6 @@ endDate: 2024-01
 type: experience 
 ---
 
-I thoroughly enjoyed working as a Barista, it prepared me for work in no way any module at university could have.
-It taught me how to deal with customers, work with colleagues and interact with management.
-But perhaps most important of all how to make a good cup of coffee.
+Performed opening and closing duties, stock checks, equipment setup and cleaning, and I made coffee. 
+
+Some might even say ~good~ GREAT coffee. 
